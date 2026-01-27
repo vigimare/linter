@@ -1,6 +1,6 @@
 # Linter
 
-This repo contains code for validating XML files in the [VIGIMARE](https://vigimare.eu/) project.
+This repo contains code for validating XML files in the [VIGIMARE project](https://vigimare.eu/).
 Multiple XSD files from the [CISE data model](https://emsa.europa.eu/cise-documentation/cise-data-model-1.5.3/) as well as the [VIGIMARE data model](https://github.com/vigimare/xsd/tree/main/vigimare) are used to verify the XML files.
 
 The repo contains both a CLI and a webapp for this.
@@ -33,7 +33,7 @@ This project use [uv](https://github.com/astral-sh/uv) for package managing, rat
 ## How to run
   Now everything should be set up correctly. The `examples` folder contains some XML files. Try to run
   ```bash
-  uv run main.py --xml-files examples/vigimare_vessel.xml
+  uv run main.py --xml-files examples/vigimare_vessel_with_mmsi.xml
   ```
 This should return a success.
 
