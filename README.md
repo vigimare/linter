@@ -8,17 +8,27 @@ The repo contains both a CLI and a webapp for this.
 
 ## How to install
 This project use [uv](https://github.com/astral-sh/uv) for package managing, rather than `pip` or `conda`.
+
 1. **Install uv**
-   If you don’t have `uv` installed, you can install it via the command
-   ```bash
-   curl -LsSf https://astral.sh/uv/install.sh | sh
-   ```
-  2. **Install dependencies**
+
+    If you don’t have `uv` installed, you can install it via the command
+    ```bash
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+    ```
+2. **Install dependencies**
+
     Run the following command in the project root:
       ```bash
       uv sync
       ```
       This will install the dependencies listed in pyproject.toml in a virtual environment called `.venv`
+
+3. **Create the submodule**
+
+    Fetch the contents from the [xsd repository](https://github.com/vigimare/xsd)
+      ```bash
+      git submodule update --init
+      ```
 
 ## How to run
   Now everything should be set up correctly. The `examples` folder contains some XML files. Try to run
@@ -29,7 +39,7 @@ This should return a success.
 
 Run multiple files
   ```bash
-  uv run main.py --xml-files examples/vigimare_vessel.xml examples/vigimare_object.xml examples/vigimare_indication.xml examples/vigimare_anomaly_alert.xml examples/vigimare_intention_alert.xml
+  uv run main.py --xml-files examples/*.xml
   ```
 
 ## How to run webapp
