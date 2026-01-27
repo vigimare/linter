@@ -24,7 +24,7 @@ _ = st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 
 st.set_page_config(page_title="Vigimare Linter", page_icon="assets/favicon.ico", layout="centered")  # HTML title
-cols = st.columns([1, 4, 1])
+cols = st.columns([2, 3, 2])
 with cols[1]:
     theme = st.context.theme.type
     logo_path = "assets/logo_dark.png" if theme == "dark" else "assets/logo_light.png"
@@ -66,7 +66,7 @@ st.write(
         ],
     )
 )
-option = st.radio("Input type:", ["Paste Text", "Upload File"])
+option = st.radio("Input type:", ["Paste Text", "Upload File"], horizontal=True)
 
 
 if option == "Upload File":
@@ -77,15 +77,13 @@ if option == "Upload File":
             run_linter_and_display(content)
 
 elif option == "Paste Text":
-    themes = ["Tomorrow Night", "Monokai", "GitHub", "Solarized Light", "Nord Dark"]
-
-    theme = st.radio("Select code box theme", themes, horizontal=True)
     xml = st_ace(
-        value="<field>\n    <child>value here</child>\n</field>",
+        value="",
         language="xml",
-        theme=theme.lower().replace(" ", "_"),
+        theme="tomorrow_night",
         key="xml_editor",
-        height=320,
+        #height=320,
+        placeholder="Write or paste your XML here",
         show_gutter=True,  # line numbers
         auto_update=True,  # live updates (no internal Apply button)
     )
