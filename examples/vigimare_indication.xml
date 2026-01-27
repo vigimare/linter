@@ -1,0 +1,32 @@
+<VigimareIndication
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:vessel="http://www.cise.eu/datamodel/v1/entity/vessel/"
+>
+  <Identifier>
+    <GeneratedBy>
+      <LegalName>TPZF-DarkVessel</LegalName>
+    </GeneratedBy>
+    <GeneratedIn>2025-10-14T08:14:04Z</GeneratedIn>
+    <UUID>d6989a0d-5933-4716-8a3a-0f036d6b2025</UUID>
+  </Identifier>
+  <LocationRel>
+    <Location>
+      <Geometry>
+        <Latitude>57.165705</Latitude>
+        <Longitude>11.749355</Longitude>
+      </Geometry>
+    </Location>
+   </LocationRel>
+  <InvolvedObjectRel>
+    <Object xsi:type="vessel:VigimareVessel">
+      <Identifier>
+        <GeneratedBy>
+          <LegalName>MTU-Radar</LegalName>
+        </GeneratedBy>
+      </Identifier>
+      <TrackID>505025</TrackID>
+    </Object>
+  </InvolvedObjectRel>
+  <IndicationType>DarkVessel</IndicationType>
+  <IndicationValue>True</IndicationValue>
+</VigimareIndication>

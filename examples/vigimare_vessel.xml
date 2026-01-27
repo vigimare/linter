@@ -1,0 +1,31 @@
+<VigimareVessel
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Identifier>
+    <GeneratedBy>
+      <LegalName>RISE-VesselDataFusion</LegalName>
+    </GeneratedBy>
+    <GeneratedIn>2025-12-24T15:00:04Z</GeneratedIn>
+    <UUID>3f8b5075-1e5d-43bc-be6e-949dda24e91b</UUID>
+  </Identifier>
+  <Name>PILOT 750 SE</Name>
+  <LocationRel>
+    <Location>
+      <Geometry>
+        <Latitude>56.266505</Latitude>
+        <Longitude>12.249355</Longitude>
+      </Geometry>
+    </Location>
+    <COG>85.0</COG>
+    <Heading>91.5</Heading>
+    <Speed>12.5</Speed>
+  </LocationRel>
+  <Breadth>5</Breadth>
+  <CallSign>SGAJ</CallSign>
+     <Depth>1.800</Depth>
+  <Draught>1.800</Draught>
+  <Length>15.000</Length>
+  <MMSI>265513270</MMSI>
+  <NavigationalStatus>UnderWayUsingEngine</NavigationalStatus>
+  <AisShipType>50</AisShipType>
+  <SourceType>AIS</SourceType>
+</VigimareVessel>

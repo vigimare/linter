@@ -1,0 +1,36 @@
+<VigimareAlert
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:vigimare="https://github.com/vigimare/xsd"
+    xmlns:vessel="http://www.cise.eu/datamodel/v1/entity/vessel/"
+>
+  <Identifier>
+    <GeneratedBy>
+      <LegalName>RISE-Loitering</LegalName>
+    </GeneratedBy>
+    <GeneratedIn>2025-09-13T18:59:52Z</GeneratedIn>
+    <UUID>e5a2d378-555d-4b12-9233-f4896edd5737</UUID>
+  </Identifier>
+  <LocationRel>
+    <Location>
+      <Geometry>
+        <Latitude>54.465531</Latitude>
+        <Longitude>12.259123</Longitude>
+      </Geometry>
+    </Location>
+  </LocationRel>
+  <InvolvedObjectRel>
+    <Object xsi:type="vessel:VigimareVessel">
+      <MMSI>643268124</MMSI>
+    </Object>
+  </InvolvedObjectRel>
+  <vigimare:Intention>
+    <vigimare:Classification>Loitering</vigimare:Classification>
+    <vigimare:Probability>0.75</vigimare:Probability>
+    <vigimare:Explanation>Moved 180m in 900s</vigimare:Explanation>
+  </vigimare:Intention>
+  <vigimare:Intention>
+    <vigimare:Classification>Anchored</vigimare:Classification>
+    <vigimare:Probability>0.25</vigimare:Probability>
+    <vigimare:Explanation>Movement pattern compatible with anchorage</vigimare:Explanation>
+  </vigimare:Intention>
+</VigimareAlert>

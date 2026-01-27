@@ -1,0 +1,32 @@
+services:
+  caddy:
+    container_name: linter-caddy
+    image: caddy:2.10.2-alpine
+    restart: always
+    volumes:
+      - ./caddy/dev_caddyfile:/etc/caddy/Caddyfile
+    ports:
+      - "8010:8010"
+    networks:
+      - linter-network
+
+  linter:
+    build:
+      context: .
+    restart: always
+    networks:
+      - linter-network
+    entrypoint: ["uv", "run", "streamlit", "run", "app.py"]
+    ports:
+      - 8501:8501
+
+  api:
+    build:
+      context: .
+    restart: always
+    networks:
+      - linter-network
+    entrypoint: ["uv", "run", "uvicorn", "api:app", "--reload", "--host", "0.0.0.0"]
+
+networks:
+  linter-network:

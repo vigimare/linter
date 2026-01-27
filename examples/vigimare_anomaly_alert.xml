@@ -1,0 +1,31 @@
+<VigimareAlert
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:vigimare="https://github.com/vigimare/xsd"
+    xmlns:vessel="http://www.cise.eu/datamodel/v1/entity/vessel/"
+>
+  <Identifier>
+    <GeneratedBy>
+      <LegalName>RISE-MovementPattern</LegalName>
+    </GeneratedBy>
+    <GeneratedIn>2025-10-14T08:14:04Z</GeneratedIn>
+    <UUID>280a804f-86b6-4c9c-a5e0-910036ed3683</UUID>
+  </Identifier>
+  <LocationRel>
+    <Location>
+      <Geometry>
+        <Latitude>57.165705</Latitude>
+        <Longitude>11.749355</Longitude>
+      </Geometry>
+    </Location>
+  </LocationRel>
+  <InvolvedObjectRel>
+    <Object xsi:type="vessel:VigimareVessel">
+      <MMSI>643268124</MMSI>
+    </Object>
+  </InvolvedObjectRel>
+  <vigimare:Anomaly>
+    <vigimare:AnomalyType>Movement pattern anomaly</vigimare:AnomalyType>
+    <vigimare:AnomalyScore>0.92</vigimare:AnomalyScore>
+    <vigimare:Explanation>IrregularMovement: 16 in 40 minutes, expected 3 [0-7]</vigimare:Explanation>
+    </vigimare:Anomaly>
+</VigimareAlert>

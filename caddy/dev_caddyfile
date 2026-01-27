@@ -1,0 +1,14 @@
+http://:8010 {
+    log {
+        output stdout
+    }
+
+    @api {
+        path /api/v1/*
+    }
+    reverse_proxy @api api:8000
+
+    reverse_proxy linter:8501 {
+        header_up X-Real-IP {http.request.remote.host}
+    }
+}

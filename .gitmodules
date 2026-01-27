@@ -1,0 +1,3 @@
+[submodule "xsd"]
+	path = xsd
+	url = git@github.com:vigimare/xsd.git

@@ -1,0 +1,21 @@
+<VigimareObject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Identifier>
+    <GeneratedBy>
+      <LegalName>ASN-DAS</LegalName>
+    </GeneratedBy>
+    <GeneratedIn>2025-11-14T21:39:14Z</GeneratedIn>
+    <UUID>c335c9ef-4855-5ce7-8d92-efa5ea1341be</UUID>
+  </Identifier>
+  <LocationRel>
+    <Location>
+      <Geometry>
+        <Latitude>57.165705</Latitude>
+        <Longitude>11.749355</Longitude>
+      </Geometry>
+    </Location>
+  </LocationRel>
+  <LocationUncertainty>25.5</LocationUncertainty>
+  <SourceType>DAS</SourceType>
+  <!-- Missing TrackID -->
+  <Category>Trawl</Category>
+</VigimareObject>
