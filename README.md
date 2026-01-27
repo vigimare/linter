@@ -66,5 +66,5 @@ uv run uvicorn api:app --reload
 Sending an XML file is done by using `curl` like this:
 ```bash
 curl -X POST "http://localhost:8000/api/v1/validate-file" \
-  -F "file=@examples/vigimare_vessel.xml"
+  -F "file=@examples/vigimare_vessel_with_mmsi.xml"
 ```
