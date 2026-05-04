@@ -54,9 +54,9 @@ class Linter:
             # If root XML file is valid, check Documents
             if self.schema is not None:
                 data = self.schema.to_dict(file)  # TODO: Fix this typing
-            base64_docs = self.extract_base64_documents(data)  # type: ignore
+            base64_docs = self.extract_base64_contents(data)  # type: ignore
             if base64_docs:
-                result = self.validate_base64_documents(base64_docs)
+                result = self.validate_base64_contents(base64_docs)
         return result
 
     def find_xsd_files(self, xsd_dir: str) -> list[str]:
@@ -93,7 +93,7 @@ class Linter:
         else:
             raise LinterError(LinterErrorType.SCHEMA_ERROR)
 
-    def extract_base64_documents(self, data: DocumentRel) -> list[str]:
+    def extract_base64_contents(self, data: DocumentRel) -> list[str]:
         # Assumes structure: data["DocumentRel"][...]["Document"]["Content"]
         docs: list[str] = []
         if "DocumentRel" in data:
@@ -104,17 +104,12 @@ class Linter:
                     docs.append(content)
         return docs
 
-    def validate_base64_documents(
+    def validate_base64_contents(
         self, base64_docs: list[str]
     ) -> LinterError | LinterSuccess:
-        # TODO: fix logic here
-        for idx, encoded_doc in enumerate(base64_docs):
+        for encoded_doc in base64_docs:
             try:
-                decoded_xml = base64.b64decode(encoded_doc).decode("utf-8")
+                _ = base64.b64decode(encoded_doc, validate=True)
             except Exception as e:
                 return LinterError(LinterErrorType.BASE64_ERROR, e)
-            print(f"Validating embedded base64 XML document #{idx + 1}...")
-            q = self.validate_xml(io.StringIO(decoded_xml))
-            if isinstance(q, LinterError):
-                return q
         return LinterSuccess(LinterSuccessType.DOCUMENT_SUCCESS)
