@@ -34,15 +34,15 @@ class DocumentRel(TypedDict):
 
 
 class Linter:
-    def __init__(self, xsd_dir: str = "xsd"):
-        self.xsd_dir: str = xsd_dir
+    def __init__(self, xsd_dirs: list[str] | None = None):
+        self.xsd_dirs: list[str] = list(xsd_dirs) if xsd_dirs else ["xsd/cise", "xsd/vigimare-v2"]
         self.create_schema()
         # TODO: Temp solution
         if self.schema is None:
             raise Exception
 
     def create_schema(self):
-        xsds = self.find_xsd_files(self.xsd_dir)
+        xsds = self.find_xsd_files(self.xsd_dirs)
         self.schema: XMLSchema | None = self.load_schema(xsds)
 
     def validate(self, file: str | io.StringIO) -> LinterError | LinterSuccess:
@@ -59,14 +59,21 @@ class Linter:
                 result = self.validate_base64_contents(base64_docs)
         return result
 
-    def find_xsd_files(self, xsd_dir: str) -> list[str]:
-        if not isdir(xsd_dir):
-            raise LinterError(LinterErrorType.NOT_A_DIRECTORY)
+    def find_xsd_files(self, xsd_dirs: list[str]) -> list[str]:
         xsds: list[str] = []
-        for path, _, files in walk(xsd_dir, topdown=True):
-            xsds.extend(abspath(join(path, f)) for f in files if f.endswith(".xsd"))
+        for xsd_dir in xsd_dirs:
+            if not isdir(xsd_dir):
+                raise LinterError(LinterErrorType.NOT_A_DIRECTORY)
+            for path, _, files in walk(xsd_dir, topdown=True):
+                for f in files:
+                    if not f.endswith(".xsd"):
+                        continue
+                    xsd = abspath(join(path, f))
+                    # Directories may overlap, so avoid loading the same file twice
+                    if xsd not in xsds:
+                        xsds.append(xsd)
         if not xsds:
-            print("WARNING: No XSD files found in the specified directory")
+            print("WARNING: No XSD files found in the specified directories")
         return xsds
 
     def load_schema(self, xsds: list[str]):

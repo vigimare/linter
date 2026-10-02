@@ -8,7 +8,7 @@ from linter.exceptions import LinterError, LinterSuccess
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    _ = parser.add_argument("--xsd-path", type=str, default="./xsd", help="Path to xsd files")
+    _ = parser.add_argument("--xsd-path", nargs="+", default=["./xsd/cise", "./xsd/vigimare-v2"], help="Paths to directories with xsd files")
     _ = parser.add_argument("--xml-files", nargs="+", required=True, help="XML files to validate")
     return parser.parse_args()
 
@@ -17,14 +17,14 @@ def main():
     args = parse_args()
 
     xml_files: list[str] = args.xml_files
-    xsd_path: str = cast(str, args.xsd_path)
+    xsd_paths: list[str] = cast(list[str], args.xsd_path)
 
     existing_files = [file for file in xml_files if isfile(file)]
     #print([isfile(file) for file in xml_files])
     if not existing_files:
         raise FileNotFoundError(f"Failed to find any of the specified XML files '{xml_files}'")
 
-    linter = Linter(xsd_path)
+    linter = Linter(xsd_paths)
     print("Linting complete")
     success = []
     error = []

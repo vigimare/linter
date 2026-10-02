@@ -33,7 +33,7 @@ with cols[1]:
 
 @st.cache_resource
 def init_linter():
-    return Linter("xsd")
+    return Linter(["xsd/cise", "xsd/vigimare-v2"])
 
 
 linter = init_linter()

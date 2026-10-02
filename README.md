@@ -1,7 +1,7 @@
 # Linter
 
 This repo contains code for validating XML files in the [VIGIMARE project](https://vigimare.eu/).
-Multiple XSD files from the [CISE data model](https://emsa.europa.eu/cise-documentation/cise-data-model-1.5.3/) as well as the [VIGIMARE data model](https://github.com/vigimare/xsd/tree/main/vigimare) are used to verify the XML files.
+Multiple XSD files from the [CISE data model](https://emsa.europa.eu/cise-documentation/cise-data-model-1.5.3/) as well as the [VIGIMARE data model](https://github.com/vigimare/xsd) are used to verify the XML files.
 
 The repo contains both a CLI and a webapp for this.
 
